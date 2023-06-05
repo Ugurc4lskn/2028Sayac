@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2028 Sayac</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <h1 id="title">2028 Seçim Sayacı</h1>
+    <hr>
+    <br><br><br><br>
+    
+    <h1 id="countdown">Geri Sayım</h1>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+
+    body {
+        
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #0E1526;
+      }
+      
+      #countdown {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 28px;
+        color:#fff;
+
+      }
+
+      #title {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 48px;
+        color:#fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+      }
+      
+</style>
+
+
+<script>
+
+
+    window.onload = function() {
+        var countdownElement = document.getElementById('countdown');
+        var countdownDate = new Date('05/14/2028').getTime(); 
+      
+        var countdownInterval = setInterval(function() {
+          var now = new Date().getTime();
+          var distance = countdownDate - now;
+      
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+          countdownElement.textContent = '2028 Seçimine son  ' +days + ' gün ' + hours + ' saat ' + minutes + ' dakika ' + seconds + ' saniye' + ' Kaldı';
+      
+          if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.textContent = 'Süre doldu!';
+          }
+        }, 1000);
+      };
+      
+      
+</script>
